@@ -1,0 +1,285 @@
+@charset "UTF-8";
+
+/* movieflix colors
+#4C4341     rgb(76, 67, 65)  ASH
+#646266     rgb(100, 98, 102)  DULL GRAY
+#7B798F     rgb(123, 121, 143)  PEWTER BLUE
+#ADA982    	rgb(173, 169, 130)  DARK TAN
+#D8D5BC   	rgb(216, 213, 188)  MED TAN
+#EDE4E6		rgb(237, 228, 214)  LIGHT TAN
+#667F6A		rgb(102, 127, 106)  DARK GREEN
+#DB7E40		rgb(219,126,64) BURNT ORANGE
+*/
+
+/* Global style */
+html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, figure, canvas, video, th, td, tr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align:baseline;
+	font: inherit;
+}
+
+/*html5 rule*/
+address, article, aside, footer, header, hgroup, nav, menu, nav, section {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(219,126,64);
+	border-bottom: 1px dotted rgb(219,126,64);
+}
+
+a:hover {
+	color: #7B798F;
+	border-bottom: 1px solid #7B798F;
+}
+
+html {
+	background: #667F6A	;
+}
+
+body {
+	font: 100% Cantarell, Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+	position: relative;
+	background: #fff;
+	color: rgb(76, 67, 65);
+	font-weight:normal;
+	font-style:normal;
+}
+
+nav ul {
+	list-style: none;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+/*Basic layout styles -----------------------------------------------------------------------------------------------------------*/
+
+body {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+article {
+	margin-top: 50px;
+	float: left;
+	width: 850px;
+	padding-left: 50px;
+}
+
+aside {
+	float: right;
+	width: 280px;
+	padding-right: 50px;
+}
+
+#pageFooter {
+	clear:both;
+	overflow:hidden;
+	height: 200px;
+}
+
+/* Content region styles */
+
+/*header styles*/
+header {
+	background: rgb(100, 98, 102);
+	padding-top: 50px;
+	overflow: hidden;
+	margin-bottom: 1.5em;
+	padding-left: 50px;
+}
+
+header h1 {
+	font-size: 3.2em;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 70px;
+	margin-right: .5em;
+	/*float: left;*/
+	padding-left: 80px;
+	background: url(../_images/desolve_logo.png) no-repeat left center;
+	color: #fff;
+}
+
+header h2 {
+	font-style: italic;
+	font-weight:normal;
+	font-size: 1.4em;
+	color: #fff;
+	text-transform: lowercase;
+	letter-spacing:.1em;
+	line-height: 50px;
+	padding-left: 80px;
+}
+
+header a, header a:hover {
+	color: #fff;
+	border: none;
+}
+
+/* nav styles */
+#mainNav {
+	overflow: hidden;
+	margin-bottom: 1.5em;
+	padding-left: 50px;
+}
+
+#mainNav li {
+	float: left;
+	margin-right: 3.6em;
+}
+
+#mainNav a {
+	text-transform: uppercase;
+	display: block;
+	color: rgb(76, 67, 65);
+	border: none;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+#mainNav a:hover {
+	color: rgb(219,126,64);
+}
+
+#mainNav a em {
+	font-size: .8em;
+	display: block;
+	text-transform: lowercase;
+	color: rgb(76, 67, 65);
+}
+
+a.imdbratings{
+	padding-left: 22px;
+}
+
+a.mostvoted {
+	padding-left: 22px;
+}
+
+a.metascore {
+	padding-left: 24px;
+}
+
+a.mostreviewed {
+	padding-left: 20px;
+}
+
+/*article styles*/
+article section {	
+	border: 2px solid rgb(76, 67, 65);
+	margin: 2em;
+}
+
+article p {
+	font-size:1em;
+	margin: 1.2em 0;
+}
+article ul {
+	margin:0 0 1em 50px;
+}
+
+.film {
+	background: rgb(237, 228, 214);
+	float: left;
+	margin-right: 20px;
+	width: 310px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	font-size: 90%;
+}
+
+.film + .film {
+	margin-right: 0;
+}
+
+.film img {
+	height: 300px;
+	width:300px;
+}
+
+.film p{
+	text-align: center;
+}
+
+
+/* aside styles */
+aside h2 {
+	font-family: Cardo, Georgia, Times, serif;
+	font-size: 1.2em;
+	text-align: center;
+	margin-bottom: 1em;
+	clear: both;
+}
+
+aside nav {
+	margin-bottom: 2em;
+}
+
+aside nav a {
+	display:block;
+	padding-left: 16px;
+	border: none;
+	color: rgb(76, 67, 65);
+	line-height: 2em;
+	margin-bottom: 1px;
+}
+
+aside nav li {
+	background: rgb(216, 213, 188);
+}
+
+aside nav li:nth-child(even) {
+	background: rgb(237, 228, 214);
+}
+
+aside nav a:hover {
+	color: #fff;
+	border:none;
+	background: rgb(100, 98, 102);
+}
+
+/* footer styles */
+#pageFooter {
+	background: rgb(173, 169, 130);
+	padding-top: 1.5em;
+}
+
+footer form.search-form {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+}
+
+input[type="search"] {
+	width: 250px;
+}
+
+input[type="submit"] {
+	margin-top: 2px;
+}
+
+#pageFooter label {
+	display: block;
+	font-size: 1.2em;
+	text-transform:uppercase;
+}
+
+#pageFooter p {
+	float: right;
+	clear: right;
+	margin-right: 4%;
+	text-align: right;
+}
