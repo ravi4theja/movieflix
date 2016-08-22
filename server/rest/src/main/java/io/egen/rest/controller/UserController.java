@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.egen.rest.classes.LoginObj;
+import io.egen.rest.classes.LoginResponse;
 import io.egen.rest.entity.User;
 import io.egen.rest.service.UserService;
 
@@ -46,4 +48,11 @@ public class UserController {
 	public void delete(@PathVariable("id") String userId) {
 		service.delete(userId);
 	}
+	
+	
+	@RequestMapping(method = RequestMethod.POST, path = "login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public LoginResponse login(@RequestBody LoginObj loginObj) {
+		return service.createToken(loginObj);
+	}
+	
 }

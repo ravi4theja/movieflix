@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Movieflix</title>
+
+    <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel = "stylesheet">
+
+    <!-- bower:css -->
+    <!-- endinject -->
+
+    <!-- vendor:css -->
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- app:css -->
+    <!-- endinject -->
+
+</head>
+<body class = "main-container">
+<header class = "header">
+    <div ng-controller = "SignInController as logInVm">
+        <a class = "sign-in btn btn-primary" ng-href = "#/sign-in" ng-hide = "logInVm.isAuthed()"><div>Log in</div></a>
+        <a class = "sign-up btn btn-primary" ng-href = "#/add-user" ng-hide = "logInVm.isAuthed()"><div>Sign up</div></a>
+        <a class = "admin" ng-href = "#/admin-page" ng-show = "logInVm.getAdminStatus()"><div>Admin</div></a>
+        <a class = "user-name" ng-show = "logInVm.isAuthed()"><div>{{logInVm.getUserName()}}</div></a>
+        <a class = "log-out btn btn-primary" ng-click = "logInVm.logOut()" ng-show = "logInVm.isAuthed()"><div>Log Out</div></a>
+    </div>
+    <h1><a ng-href = "#/movie-list">MOVIEFLIX</a></h1>
+
+</header>
+<section class = "container content" ng-view>
+
+</section>
+<footer>
+    <div class="container">
+        &copy; ravion.
+    </div>
+</footer>
+
+<!-- bower:js -->
+<!-- endinject -->
+
+<!-- vendor:js -->
+<!-- endinject -->
+
+<!-- inject:js -->
+<!-- endinject -->
+
+<!-- app:js -->
+<!-- endinject -->
+</body>
+</html>

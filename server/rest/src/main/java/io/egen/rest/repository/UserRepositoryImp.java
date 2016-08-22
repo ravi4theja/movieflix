@@ -1,5 +1,6 @@
 package io.egen.rest.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,7 +9,10 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import io.egen.rest.classes.LoginResponse;
 import io.egen.rest.entity.User;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 @Repository
 public class UserRepositoryImp implements UserRepository{
@@ -52,5 +56,12 @@ public class UserRepositoryImp implements UserRepository{
 	@Override
 	public void delete(User user) {
 		em.remove(user);
+	}
+	
+	@Override
+	public LoginResponse createToken(User user) {
+		return new LoginResponse(Jwts.builder().setSubject(user.getId())
+	            .claim("role", user.getRole()).claim("name", user.getFirstName()).setIssuedAt(new Date())
+	            .signWith(SignatureAlgorithm.HS256, "secretkey").compact());
 	}
 }

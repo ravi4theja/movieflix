@@ -34,7 +34,7 @@ public class Movie {
 	private String title;
 	
 	@JsonProperty(value="Year")
-	private int year;
+	private String year;
 	
 	@JsonProperty(value="Rated")
 	private String rated;
@@ -74,9 +74,9 @@ public class Movie {
 	private String poster;
 	
 	@JsonProperty(value="Metascore")
-	private int metascore;
+	private String metascore;
 	
-	private float imdbRating;
+	private String imdbRating;
 	
 	private String imdbVotes;
 	
@@ -103,11 +103,11 @@ public class Movie {
 		this.title = title;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
@@ -207,19 +207,19 @@ public class Movie {
 		this.poster = poster;
 	}
 
-	public int getMetascore() {
+	public String getMetascore() {
 		return metascore;
 	}
 
-	public void setMetascore(int metascore) {
+	public void setMetascore(String metascore) {
 		this.metascore = metascore;
 	}
 
-	public float getImdbRating() {
+	public String getImdbRating() {
 		return imdbRating;
 	}
 
-	public void setImdbRating(float imdbRating) {
+	public void setImdbRating(String imdbRating) {
 		this.imdbRating = imdbRating;
 	}
 

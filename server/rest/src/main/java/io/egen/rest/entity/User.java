@@ -29,11 +29,15 @@ public class User {
 
 	@Column(unique = true)
 	private String email;
+	
+	private String password;
 
 	private String city;
 	private String state;
 
 	private int zip;
+	
+	private String role;
 
 	public String getId() {
 		return id;
@@ -67,6 +71,14 @@ public class User {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getCity() {
 		return city;
 	}
@@ -91,11 +103,22 @@ public class User {
 		this.zip = zip;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", city=" + city + ", state=" + state + ", zip=" + zip + "]";
+				+ ", password=" + password + ", city=" + city + ", state=" + state + ", zip=" + zip + ", role=" + role
+				+ "]";
 	}
+
+	
 }
 
 

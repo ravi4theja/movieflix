@@ -26,6 +26,10 @@ public class RatingServiceImp implements RatingService {
 		return ratingRepository.findRatingsByMovie(movieId);
 	}
 	
+	public Rating findRatingForMovieByUser(String movieId, String userId) {
+		return ratingRepository.findRatingForMovieByUser(movieId, userId);
+	}
+	
 	@Override
 	public Rating findRating(String ratingId) {
 		Rating existing = ratingRepository.findRating(ratingId);

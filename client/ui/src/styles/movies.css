@@ -1,0 +1,50 @@
+.sort-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.movies-container {
+
+}
+
+.movie-list {
+
+}
+
+.movie-box {
+    background: #B6FFAD;
+    float: left;
+    width: 223px;
+    height: 328px;
+    margin: 10px;
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.5);
+}
+
+.movie-tile {
+    width: 223px;
+    height: 328px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.movie-tile-info {
+    text-align: center;
+}
+
+img {
+    width: 223px;
+    height: 328px;
+}
+
