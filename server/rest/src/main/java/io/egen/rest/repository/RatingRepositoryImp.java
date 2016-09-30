@@ -20,8 +20,15 @@ public class RatingRepositoryImp implements RatingRepository {
 	public List<Rating> findRatingsByMovie(String movieId) {
 		TypedQuery<Rating> query = em.createNamedQuery("Rating.findRatingsByMovie", Rating.class);
 		query.setParameter("pMovie", movieId);
-		List<Rating> ratings = query.getResultList();
-		return ratings;
+		return query.getResultList();
+	}
+	
+	@Override
+	public Rating findRatingForMovieByUser(String movieId, String userId) {
+		TypedQuery<Rating> query = em.createNamedQuery("Rating.findRatingsForMovieByUser", Rating.class);
+		query.setParameter("pMovie", movieId);
+		query.setParameter("pUser", userId);
+		return query.getSingleResult();
 	}
 	
 	@Override

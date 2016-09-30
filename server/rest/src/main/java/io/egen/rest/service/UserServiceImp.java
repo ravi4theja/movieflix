@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import io.egen.rest.classes.LoginObj;
+import io.egen.rest.classes.LoginResponse;
 import io.egen.rest.entity.User;
 import io.egen.rest.exception.UserAlreadyExistsException;
 import io.egen.rest.exception.UserNotFoundException;
@@ -59,6 +61,16 @@ public class UserServiceImp implements UserService {
 			throw new UserNotFoundException("User with id:" + id + " not found");
 		}
 		repository.delete(existing);
+	}
+	
+	@Override
+	@Transactional
+	public LoginResponse createToken(LoginObj loginObj) {
+		User existing = repository.findByEmail(loginObj.email);
+		if (existing == null) {
+			throw new UserNotFoundException("User with id:" + loginObj.email + " not found");
+		}
+		return repository.createToken(existing);
 	}
 
 }

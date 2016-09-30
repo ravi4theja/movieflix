@@ -19,9 +19,14 @@ public class RatingController {
 	@Autowired
 	RatingService ratingService;
 	
-	@RequestMapping(method = RequestMethod.GET, path = "/movies/{movieId}/ratings", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.GET, path = "ratings/{movieId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Rating> findRatingsByMovie(@PathVariable("movieId") String movieId) {
 		return ratingService.findRatingsByMovie(movieId);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, path = "ratings/{movieId}/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Rating findRatingForMovieByUser(@PathVariable("movieId") String movieId, @PathVariable("userId") String userId) {
+		return ratingService.findRatingForMovieByUser(movieId, userId);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -29,17 +34,17 @@ public class RatingController {
 		return ratingService.findRating(ratingId);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, path = "/ratings/add", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.POST, path = "ratings/add", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Rating addRating(@RequestBody Rating rating) {
 		return ratingService.addRating(rating);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, path = "/ratings/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.PUT, path = "ratings/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Rating updateRating(@PathVariable("id") String ratingId, @RequestBody Rating rating) {
 		return ratingService.updateRating(rating, ratingId);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, path = "/rating/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, path = "rating/{id}")
 	public void deleteRating(@PathVariable("id") String ratingId) {
 		ratingService.deleteRating(ratingId);
 	}

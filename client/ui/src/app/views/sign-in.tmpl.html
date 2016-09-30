@@ -1,0 +1,18 @@
+<div class = "container">
+    <form name = "signInForm" class="form-inline" ng-submit="signInForm.$setPristine();">
+        <div class="form-group">
+            <label class="sr-only" for="email">Email address</label>
+            <input type="email" ng-model = "signInVm.logInObj.email" class="form-control" id="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+        </div>
+        <button type="submit" ng-click = "signInVm.logIn();" class="btn btn-default">Sign in</button>
+    </form>
+</div>

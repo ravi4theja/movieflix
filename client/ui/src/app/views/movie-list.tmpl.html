@@ -1,0 +1,35 @@
+<div class = "container">
+    <button type = "button" class = "sort-button" ng-click = "movieListVm.filterValue = '';">All</button>
+    <button type = "button" class = "sort-button" ng-click = "movieListVm.filterValue = 'movie';">Top Rated Movies</button>
+    <button type = "button" class = "sort-button" ng-click = "movieListVm.filterValue = 'series';">Top Rated Tv</button>
+    <h2 class = "filter">Filter</h2>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="yearInput">Year</label>
+            <input type="Year" class="form-control" id="yearInput" placeholder="year" ng-model =
+                    "movieListVm.searchYear">
+        </div>
+        <div class="form-group">
+            <label for="genreInput">Genre</label>
+            <input type="Genre" class="form-control" id="genreInput" placeholder="sci-fi or horror or comedy or ..." ng-model =
+                    "movieListVm.searchGenre">
+        </div>
+    </form>
+    <button ng-click = "movieListVm.sorter.sortBy = 'imdbRating'; movieListVm.sorter.sortOrder = !movieListVm.sorter.sortOrder;" type = "button" class ="sort-button">Sort by IMDRatings</button>
+    <button ng-click = "movieListVm.sorter.sortBy = 'Year'; movieListVm.sorter.sortOrder = !movieListVm.sorter.sortOrder;" type = "button" class = "sort-button">Sort by Year</button>
+    <button ng-click = "movieListVm.sorter.sortBy = 'imdbVotes'; movieListVm.sorter.sortOrder = !movieListVm.sorter.sortOrder;" type = "button" class = "sort-button">Sort by IMDB Votes</button>
+    <div class = "clearfix movies-container">
+        <div class = "movie-box" ng-repeat="movie in movieListVm.movies | filter: {Type: movieListVm.filterValue} | filter: {Year: movieListVm.searchYear}
+                        | filter: {Genre: movieListVm.searchGenre} | orderBy: movieListVm.sorter.sortBy: movieListVm.sorter.sortOrder">
+           <!-- <img class = "movie-poster" ng-click = "movieListVm.getMovie(movie.id)" ng-src = "{{movie.Poster}}"> -->
+            <div class = "movie-tile" style = "background-image: url({{movie.Poster}})" ng-click = "movieListVm.getMovie(movie.id)" ng-mouseenter="movieListVm.showTileInfo = true" ng-mouseleave = "movieListVm.showTileInfo = false">
+                <!--<div class = "movie-tile-info" ng-show = "movieListVm.showTileInfo">
+                    <p>{{movie.Title}}</p>
+                    <p>{{movie.Released}}</p>
+                    <p>IMDB Rating: {{movie.imdbRating}}</p>
+                    <p>Metascore: {{movie.Metascore}}</p>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

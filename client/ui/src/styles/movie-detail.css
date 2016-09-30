@@ -1,0 +1,16 @@
+.movie-modal {
+    padding: 15px;
+}
+
+.movie-modal h2 {
+    font-family: 'Mirza', Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    color: blueviolet;
+    margin-right: 1px;
+}
+
+.rating {
+    float: right;
+}

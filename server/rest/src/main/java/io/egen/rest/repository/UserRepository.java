@@ -2,6 +2,7 @@ package io.egen.rest.repository;
 
 import java.util.List;
 
+import io.egen.rest.classes.LoginResponse;
 import io.egen.rest.entity.User;
 
 public interface UserRepository {
@@ -17,4 +18,6 @@ public interface UserRepository {
 	public User update(User user);
 
 	public void delete(User user);
+	
+	public LoginResponse createToken(User user);
 }

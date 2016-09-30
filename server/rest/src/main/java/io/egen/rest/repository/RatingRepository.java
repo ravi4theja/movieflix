@@ -8,6 +8,8 @@ public interface RatingRepository {
 
 	public List<Rating> findRatingsByMovie(String movieId);
 	
+	public Rating findRatingForMovieByUser(String movieId, String userId);
+	
 	public Rating findRating(String ratingId);
 	
 	public Rating addRating(Rating rating);

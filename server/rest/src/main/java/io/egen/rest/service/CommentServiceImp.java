@@ -35,7 +35,10 @@ public class CommentServiceImp implements CommentService {
 	@Override
 	public Comment findComment(String commentId) {
 		Comment existing = commentRepository.findComment(commentId);
-		return existing;
+		if(existing == null)
+			throw new CommentNotFoundException("Comment with id:" + commentId + " not found");
+		else
+			return existing;
 	}
 	
 	@Override

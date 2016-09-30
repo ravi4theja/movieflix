@@ -1,0 +1,32 @@
+{
+  "name": "ui-seed",
+  "description": "ui-seed project to understand npm, bower, gulp",
+  "authors": [
+    "psalitra@egen.io"
+  ],
+  "license": "MIT",
+  "homepage": "http://learn.egen.io",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.4.9",
+    "bootstrap": "^3.3.6",
+    "angular-route": "^1.4.9",
+    "angular-messages": "^1.4.9",
+    "angular-bootstrap": "^1.3.2"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "jquery": {
+      "main": []
+    }
+  }
+}

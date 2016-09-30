@@ -1,0 +1,48 @@
+<div class = "movie-modal">
+    <div class = "rating">
+        <h4>MF Rating</h4>
+        <span uib-rating ng-model = "movieVm.overAllRating" max="movieVm.maxRating" read-only=true></span>
+        <span class="label" ng-class="{'label-warning': movieVm.overAllRating<3, 'label-info': movieVm.overAllRating>=3 && movieVm.overAllRating<7, 'label-success': movieVm.overAllRating>=7}">{{movieVm.overAllRating}}</span>
+        <div ng-show = "movieVm.isAuthed">
+            <h4>Your Rating</h4>
+            <span uib-rating ng-model="movieVm.yourRating" max="movieVm.maxRating" read-only=false on-hover="hoveringOver(value)" on-leave="overStar = null"></span>
+            <span class="label" ng-class="{'label-warning': movieVm.overStar<3, 'label-info': movieVm.overStar>=3 && movieVm.overStar<7, 'label-success': movieVm.overStar>=7}">{{movieVm.overStar}}</span>
+            <button type="button" class="btn btn-sm btn-default" ng-click="movieVm.addRating(movieVm.yourRating)">update Rating</button>
+        </div>
+    </div>
+    <div class = "movie-info">
+        <h2>{{movieVm.movie.Title}}({{movieVm.movie.Year}})</h2>
+        <p>Released: {{movieVm.movie.Released}}</p>
+        <p>Runtime: {{movieVm.movie.Runtime}}</p>
+        <p>Genre: {{movieVm.movie.Genre}}</p>
+        <p>Director: {{movieVm.movie.Director}}</p>
+        <p>Writers: {{movieVm.movie.Writer}}</p>
+        <p>Actors: {{movieVm.movie.Actors}}</p>
+        <p>Plot: {{movieVm.movie.Plot}}</p>
+        <p>Awards: {{movieVm.movie.Awards}}</p>
+        <p>Metascore: {{movieVm.movie.Metascore}}</p>
+        <p>imdbRating: {{movieVm.movie.imdbRating}}</p>
+        <p>imdbVotes: {{movieVm.movie.imdbVotes}}</p>
+    </div>
+    <div class = "comment-sec">
+        <h3 class = "comment-head">Reviews</h3>
+        <div class = "comment" ng-repeat = "comment in movieVm.comments">
+            <p>{{comment.user.firstName}}: {{comment.comment}}</p>
+        </div>
+        <h4>Add Review</h4>
+        <form ng-show = "movieVm.isAuthed" name="commentForm" ng-submit = "commentForm.$setPristine(); movieVm.addComment(movieVm.commentInput)">
+            <div class = "form-group">
+                <div class="input-group">
+                    <textarea class = "form-control" ng-model = "movieVm.commentInput" type = "text" placeholder = "Add review here.." maxlength ="500" required></textarea>
+                    <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Done</button>
+                </span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <button class="btn btn-primary" type="button" ng-click="movieVm.ok()">OK</button>
+
+</div>
